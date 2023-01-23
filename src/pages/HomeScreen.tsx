@@ -16,6 +16,8 @@ export const HomeScreen = () => {
     { name: "Arturo", active: true },
     { name: "Jin (현진)", active: true },
     { name: "Grace", active: true },
+    { name: "Lay", active: true },
+    { name: "Maria Paz", active: true },
   ]);
   const [grups, setGroups] = useState<
     Array<{ name: string; classmates: Array<string> }>
