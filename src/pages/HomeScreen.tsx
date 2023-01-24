@@ -1,27 +1,11 @@
-import React, { useState } from "react";
 import "animate.css";
+import { useEffect, useState } from "react";
+import { initialGroup } from "../data/users";
+import { Group, User } from "../interfaces/common";
 
 export const HomeScreen = () => {
-  const [classmates] = useState([
-    { name: "Luis", active: true },
-    { name: "Fede", active: true },
-    { name: "Palm", active: true },
-    { name: "Monti", active: true },
-    { name: "April", active: true },
-    { name: "Victoria", active: true },
-    { name: "Shin Young (신영)", active: true },
-    { name: "Eiji", active: true },
-    { name: "Heeseo (희서)", active: true },
-    { name: "Simge", active: true },
-    { name: "Arturo", active: true },
-    { name: "Jin (현진)", active: true },
-    { name: "Grace", active: true },
-    { name: "Lay", active: true },
-    { name: "Maria Paz", active: true },
-  ]);
-  const [grups, setGroups] = useState<
-    Array<{ name: string; classmates: Array<string> }>
-  >([]);
+  const [classmates, setClassmates] = useState<User[]>([]);
+  const [grups, setGroups] = useState<Group[]>([]);
 
   const generatorClassmates = () => {
     let tempClassmates = classmates.filter((x) => x.active === true);
@@ -51,6 +35,15 @@ export const HomeScreen = () => {
     ];
     setGroups([...dataFinal]);
   };
+
+  useEffect(() => {
+    const data = localStorage.getItem("users");
+    if (data === null) {
+      localStorage.setItem("users", JSON.stringify(initialGroup));
+    } else {
+      setClassmates(JSON.parse(data));
+    }
+  }, []);
 
   return (
     <div className="container-app">
