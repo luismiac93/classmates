@@ -1,6 +1,11 @@
+import { ClassmatesProvider } from "./context";
 import { HomeScreen } from "./pages/HomeScreen";
 import "./styles.css";
 
 export const ClassRoomApp = () => {
-  return <HomeScreen />;
+  return (
+    <ClassmatesProvider>
+      <HomeScreen />
+    </ClassmatesProvider>
+  );
 };

@@ -1,6 +1,6 @@
-import { User } from "../interfaces/common";
+import { Classmate } from "../interfaces/common";
 
-export const initialGroup: Array<User> = [
+export const initialGroup: Array<Classmate> = [
   { name: "Luis", active: true },
   { name: "Fede", active: true },
   { name: "Palm", active: true },
