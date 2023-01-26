@@ -7,11 +7,13 @@ import { classmatesReducer } from "./classmatesReducer";
 export interface ClassmatesState {
   classmates: Classmate[];
   groups: Group[];
+  modalSettings: boolean;
 }
 
 const INITIAL_STATE: ClassmatesState = {
   classmates: [],
   groups: [],
+  modalSettings: false,
 };
 
 interface Props {
@@ -62,14 +64,33 @@ export const ClassmatesProvider = ({ children }: Props) => {
 
   const createClassmate = (name: string) => {
     dispatch({ type: "createClassmate", payload: name });
+    localStorage.setItem(
+      "classmates",
+      JSON.stringify([...state.classmates, { name, active: true }])
+    );
   };
 
   const deleteClassmate = (name: string) => {
     dispatch({ type: "deleteClassmate", payload: name });
+    localStorage.setItem(
+      "classmates",
+      JSON.stringify([...state.classmates.filter((x) => x.name !== name)])
+    );
   };
 
-  const updateClassmate = (name: string) => {
-    dispatch({ type: "updateClassmate", payload: name });
+  const updateClassmate = (classmates: Classmate) => {
+    dispatch({ type: "updateClassmate", payload: classmates });
+    localStorage.setItem(
+      "classmates",
+      JSON.stringify([
+        ...state.classmates.filter((x) => x.name !== classmates.name),
+        classmates,
+      ])
+    );
+  };
+
+  const toggleModalSettings = () => {
+    dispatch({ type: "toggleModalSettings", payload: !state.modalSettings });
   };
 
   return (
@@ -81,6 +102,7 @@ export const ClassmatesProvider = ({ children }: Props) => {
         createClassmate,
         deleteClassmate,
         updateClassmate,
+        toggleModalSettings,
       }}
     >
       {children}

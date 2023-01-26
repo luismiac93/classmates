@@ -19,3 +19,39 @@ export const initialGroup: Array<Classmate> = [
   { name: "Fernando", active: true },
   { name: "Minjun", active: true },
 ];
+
+export const eyes: string[] = [
+  "closed",
+  "closed2",
+  "crying",
+  "cute",
+  "glasses",
+  "love",
+  "pissed",
+  "plain",
+  "sad",
+  "shades",
+  "sleepClose",
+  "stars",
+  "tearDrop",
+  "wink",
+  "wink2",
+];
+
+export const mouth: string[] = [
+  "cute",
+  "drip",
+  "faceMask",
+  "kissHeart",
+  "lilSmile",
+  "pissed",
+  "plain",
+  "sad",
+  "shout",
+  "shy",
+  "sick",
+  "smileLol",
+  "smileTeeth",
+  "tongueOut",
+  "wideSmile",
+];
