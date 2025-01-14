@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ClassmatesProvider } from "./context";
 import { HomeScreen } from "./pages/HomeScreen";
 import "./styles.css";
@@ -5,6 +6,7 @@ import "./styles.css";
 export const ClassRoomApp = () => {
   return (
     <ClassmatesProvider>
+      <SpeedInsights />
       <HomeScreen />
     </ClassmatesProvider>
   );

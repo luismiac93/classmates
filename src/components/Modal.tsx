@@ -30,7 +30,9 @@ export const ModalComponent = () => {
           </Text>
         </Modal.Header>
         <ModalBody />
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer>
+          Develop by <a href="mailto:luismiac93@gmail.com">Luismi - { new Date().getFullYear()}</a>
+        </Modal.Footer>
       </Modal>
     </>
   );
